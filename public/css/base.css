@@ -1,0 +1,66 @@
+@import "./normalize.css";
+
+/* 定义变量 */
+:root {
+  --background-color: white;
+  --color-text: black;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+/* 定义内外边距、盒模型 */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body区域 */
+body {
+  font-family: 'Times New Roman', Helvetica, Georgia, 宋体, Sans-serif;
+  user-select: none;
+  /* 禁止用户选中 */
+  background: var(--background-color);
+  color: var(--color-text);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: #CDCDCD;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Arial, Helvetica, 黑体;
+}
+
+/* 清除浮动 */
+.clear-fix::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+
+.clear {
+  zoom: 1;
+}
+
+/* 定义浮动 */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

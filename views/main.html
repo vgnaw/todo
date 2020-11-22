@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="../public/css/normalize.css">
+  <link rel="stylesheet" href="../public/css/base.css">
+  <link rel="stylesheet" href="../public/css/main.css"> -->
+</head>
+
+<body>
+
+  <header>
+    <label for="inpToDo"><h1>ToDo</h1></label>
+    <input id="inpToDo" type="text" placeholder="add todo">
+    <a href="./login">登录</a>
+    <a href="./register">注册</a>
+    <a id="logout" href="/logout">退出登录</a>
+  </header>
+
+  <main>
+    <h2 onclick="save()">进行中 <span id="todoCount"></span></h2>
+    <ol id="todoList" class="todoList">
+      <li><input type="checkbox"><p>吃饭</p><a href=""></a></li>
+    </ol>
+    <h2>已完成 <span id="doneCount"></span></h2>
+    <ul id="doneList">
+      <li><input type="checkbox"><p>不吃</p><a href=""></a></li>
+    </ul>
+  </main>
+
+  <script src="/js/ajax.js" type="module"></script>
+  <script src="/js/main.js" type="module"></script>
+</body>
+
+</html>
