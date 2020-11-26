@@ -1,6 +1,12 @@
 # todolist
 
-The front-end part uses pure HTML, CSS, JavaScript, and the back-end uses Nodejs's Express framework to build a server to synchronize the MySQL database in real time.
+The front-end part uses pure CSS, JavaScript, and the back-end uses Nodejs's Express framework to build a server to synchronize the MySQL database in real time.
+
+## fature
+
+- login/register（Use session to monitor user login status）
+- add/delete、compelete/cancel todolist
+- get the number of agents in real time
 
 ## Page display
 
@@ -19,18 +25,6 @@ The front-end part uses pure HTML, CSS, JavaScript, and the back-end uses Nodejs
 - **test**
 
   ![test](https://items-picture.oss-cn-beijing.aliyuncs.com/todo/handle.gif)
-
-## fature
-
-- login/register（Use session to monitor user login status）
-- add/delete、compelete/cancel todolist
-- get the number of agents in real time
-
-## assets source
-
-- background-image：https://pixabay.com/
-- font-family：https://fonts.google.com/
-- font-icon：http://www.fontawesome.com.cn/
 
 ## MySQL data sheet
 
@@ -52,3 +46,8 @@ create table todo_list(`todo_id` int not null auto_INCREMENT,`UserName` varchar(
 create table done_list(`done_id` int not null auto_INCREMENT,`UserName` varchar(64) not null,`done` varchar(999) not null,`createTime` varchar(13) not null, primary key(done_id));
 ```
 
+## assets source
+
+- background-image：https://pixabay.com/
+- font-family：https://fonts.google.com/
+- font-icon：http://www.fontawesome.com.cn/

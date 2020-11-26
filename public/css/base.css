@@ -11,10 +11,6 @@
 }
 
 @font-face {
-  font-family: CF;
-  src: url('./font/ChunkFive-Regular.otf')
-}
-@font-face {
   font-family: Roboto;
   src: url('./font/Roboto-Regular.ttf')
 }
