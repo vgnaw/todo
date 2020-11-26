@@ -2,12 +2,30 @@
 
 /* 定义变量 */
 :root {
-  --background-color: white;
+  --background-color: #DBEEAC;
+  /* --background-image0: url(https://cdn.pixabay.com/photo/2013/07/12/15/39/post-it-150262_960_720.png); */
+  /* --background-image1: url(https://cdn.pixabay.com/photo/2017/03/07/15/38/bulb-2124338_960_720.png); */
   --color-text: black;
   --font-size: 14px;
   --line-height: 1.5;
 }
 
+@font-face {
+  font-family: CF;
+  src: url('./font/ChunkFive-Regular.otf')
+}
+@font-face {
+  font-family: Roboto;
+  src: url('./font/Roboto-Regular.ttf')
+}
+@font-face {
+  font-family: NO;
+  src: url('./font/NerkoOne-Regular.ttf')
+}
+@font-face {
+  font-family: Anton;
+  src: url('./font/Anton-Regular.ttf')
+}
 /* 定义内外边距、盒模型 */
 *,
 ::before,
@@ -17,21 +35,22 @@
   box-sizing: border-box;
 }
 
+html,body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 /* body区域 */
 body {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
   font-family: 'Times New Roman', Helvetica, Georgia, 宋体, Sans-serif;
   user-select: none;
   /* 禁止用户选中 */
-  background: var(--background-color);
+  background-color: var(--background-color);
   color: var(--color-text);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
-  background-color: #CDCDCD;
 }
 
 h1,

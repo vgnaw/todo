@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>login</title>
+  <!-- 初始css -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- 基础css -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 当前页面css -->
+  <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-  <!-- <form method="POST" action="http://localhost:3000/login"> -->
-    <form>
-    <label for="username">用户名：</label><input value="qq" type="text" id="username" name="username">
-    <label for="password">密&nbsp;&nbsp;&nbsp;码：</label><input value="123" type="password" id="password" name="password">
-    <input id="loginBtn" type="submit" value="登录">
-  </form>
-  <a href="./register">注册</a>
 
+<body>
+  <!-- 壳 -->
+  <div class="login">
+    <!-- 用户名输入框 -->
+    <div id="userNameBox" class="userNameBox">
+      <!-- 输入框标题 -->
+      <label for="username">Username</label>
+      <!-- 输入框 -->
+      <input value="" type="text" id="username" name="username" autocomplete="off">
+      <!-- 输入框下方线条 -->
+      <p></p>
+    </div>
+    <!-- 密码输入框 -->
+    <div id="userPassBox" class="userPassBox">
+      <!-- 输入框标题 -->
+      <label for="password">Password</label>
+      <!-- 输入框 -->
+      <input value="" type="password" id="password" name="password">
+      <!-- 输入框下方线条 -->
+      <p></p>
+    </div>
+    <!-- 登录按钮 -->
+    <button id="loginBtn">Sign in</button>
+    <!-- 注册页面链接 -->
+    <a href="./register">Sign up</a>
+  </div>
+  <!-- ajax -->
   <script src="/js/ajax.js" type="module"></script>
+  <!-- 当前页面js -->
   <script src="/js/login.js" type="module"></script>
 </body>
+
 </html>

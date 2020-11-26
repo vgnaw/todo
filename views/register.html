@@ -5,17 +5,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>register</title>
+  <!-- 初始css -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- 基础css -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 当前页面css -->
+  <link rel="stylesheet" href="css/register.css">
 </head>
 
 <body>
-  <form method="POST">
-    <label for="user">用户名：</label><input type="text" id="username" name="username">
-    <label for="password">密&nbsp;&nbsp;&nbsp;码：</label><input type="password" id="password" name="password">
-    <input id="registerBtn" type="submit" value="注册">
-  </form>
-  <a href="./login">登录</a>
-
+  <div class="register">
+    <!-- 用户名输入框 -->
+    <div id="userNameBox" class="userNameBox">
+      <!-- 输入框标题 -->
+      <label for="username">Username</label>
+      <!-- 输入框 -->
+      <input value="" type="text" id="username" name="username" autocomplete="off">
+      <!-- 提示 -->
+      <span>4~16 letters, numbers or underscores</span>
+      <!-- 输入框下方线条 -->
+      <p></p>
+    </div>
+    <!-- 密码输入框 -->
+    <div id="userPassBox" class="userPassBox">
+      <!-- 输入框标题 -->
+      <label for="password">Password</label>
+      <!-- 输入框 -->
+      <input value="" type="password" id="password" name="password">
+      <!-- 提示 -->
+      <span>8 to 16 letters, numbers, at least 1 capital letter</span>
+      <!-- 输入框下方线条 -->
+      <p></p>
+    </div>
+    <!-- 登录按钮 -->
+    <button id="registerBtn">Sign up</button>
+    <!-- 注册链接 -->
+    <a href="./login">Sign in</a>
+  </div>
+  <!-- ajax -->
   <script src="/js/ajax.js" type="module"></script>
+  <!-- 当前页面js -->
   <script src="/js/register.js" type="module"></script>
 </body>
 

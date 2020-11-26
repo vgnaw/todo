@@ -30,14 +30,92 @@ router.get('/', function (req, res) {
 }).post('/', (req, res) => {
   const data = req.body;
   const username = req.session.userName;
-  const selSqlParams = [username, data.todo];
+  const selSqlParams = [username, data.todo, data.d];
+  // 添加todo
   if (data.aim === 'addToDo') {
     connection.query(q.addToDo, selSqlParams, function (err, result) {
       if (err) {
         console.log(err.message)
+      } else {
+        connection.query(q.getToDoId, selSqlParams, function (err, result) {
+          if (err) {
+            console.log(err.message)
+          } else {
+            res.send(result[0])
+          }
+        })
       }
     });
-    res.end('add success')
+    // 获取用户名
+  } else if (data.aim === 'getUsername') {
+    res.send(username)
+    // 获取所有done
+  } else if (data.aim === 'getToDo') {
+    connection.query(q.showToDo, username, function (err, result) {
+      if (err) {
+        console.log(err.message)
+      } else {
+        res.send(result)
+      }
+    })
+    // 获取所有done
+  } else if (data.aim === 'getDone') {
+    connection.query(q.showDone, username, function (err, result) {
+      if (err) {
+        console.log(err.message)
+      } else {
+        res.send(result)
+      }
+    });
+    // 删除指定事项
+  } else if (data.aim === 'del') {
+    connection.query(q.del(username, data.ln, data.table, data.col, data.item, data.lt), function (err, result) {
+      if (err) {
+        console.log(err.message)
+      } else {
+        res.send('delSuccess')
+      }
+    });
+    // 完成事项
+  } else if (data.aim === 'done') {
+    connection.query(q.delToDo, [username, data.ln, data.item, data.lt], function (err, result) {
+      if (err) {
+        console.log(err.message)
+      } else {
+        connection.query(q.addDone, [username, data.item, data.lt], function (err, result) {
+          if (err) {
+            console.log(err.message)
+          } else {
+            connection.query(q.getDoneId, [username, data.item, data.lt], function (err, result) {
+              if (err) {
+                console.log(err.message)
+              }
+              res.send(result[0])
+            });
+          }
+        })
+      }
+    })
+    // 撤销完成事项
+  } else if (data.aim === 'undone') {
+    connection.query(q.delDone, [username, data.ln, data.item, data.lt], function (err, result) {
+      if (err) {
+        console.log(err.message)
+      } else {
+        connection.query(q.addToDo, [username, data.item, data.lt], function (err, result) {
+          if (err) {
+            console.log(err.message)
+          } else {
+            connection.query(q.getToDoId, [username, data.item, data.lt], function (err, result) {
+              if (err) {
+                console.log(err.message)
+              }
+              res.send(result[0])
+            });
+          }
+        })
+      }
+    })
   }
 })
 // 登录
@@ -45,15 +123,13 @@ router.get('/login', function (req, res) {
   res.sendFile(__dirname.replace(/routes/, '') + '/views/login.html')
 }).post('/login', (req, res) => {
   const data = req.body;
-  console.log(data)
   const username = data.username;
   const password = data.password;
-  const selSqlParams = [username, password];
-  connection.query(q.login, selSqlParams, function (err, result) {
+  const sqlParams = [username, password];
+  connection.query(q.login, sqlParams, function (err, result) {
     if (result[0]) {
       console.log('登录成功')
       req.session.userName = username; // 登录成功，设置 session
-      console.log(data)
       res.send('loginSuccess');
     } else {
       res.send('username or password error')
@@ -69,12 +145,12 @@ router.get('/register', function (req, res) {
   const username = data.username;
   const password = data.password;
 
-  const addSqlParams = [username, password];
-  connection.query(q.isExist, addSqlParams[0], function (err, result) {
+  const sqlParams = [username, password];
+  connection.query(q.isExist, sqlParams[0], function (err, result) {
     if (result[0]) {
       res.send('exist')
     } else {
-      connection.query(q.register, addSqlParams, function (err, result) {
+      connection.query(q.register, sqlParams, function (err, result) {
         if (err) {
           console.log('注册失败 - ', err.message);
           return;

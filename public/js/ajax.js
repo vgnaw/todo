@@ -3,6 +3,7 @@ function ajax(options) {
   let url = options.url;
   let async = options.async || true;
   let req = options.req || '';
+  let type = options.type || 'text';
   let success = options.success;
   let XHR
   if (window.XMLHttpRequest) {
@@ -10,7 +11,6 @@ function ajax(options) {
   } else {
     XHR = new ActiveXObject('Microsoft.XMLHTTP')
   }
-  console.log(req)
   if (typeof req === 'object') {
     let reqArr = []
     for (let key in req) {
@@ -20,13 +20,17 @@ function ajax(options) {
     req = reqArr.join('&')
   }
   XHR.onreadystatechange = function () {
+    const res = this.responseText
     if (this.readyState == 4 && this.status == 200) {
-      success(this.responseText)
+      if (type === 'text') {
+        success(res)
+      } else if (type === 'json') {
+        success(JSON.parse(res))
+      }
     } else {
-      console.log("ERROR!" + '  state：' + this.readyState + '；status：' + this.status)
+      // console.log("ERROR!" + '  state：' + this.readyState + '；status：' + this.status)
     }
   };
-  console.log(method,req,url,async)
   if (method === 'GET') {
     url += ('?' + req);
     XHR.open(method, url, async);

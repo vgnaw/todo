@@ -1,105 +1,233 @@
-header {
-  background-color: #323232;
-  width: 100%;
-  height: 10%;
+/* 盒子 */
+.wrap {
+  width: 40%;
+  background: url('./img/bg-main.png') no-repeat center bottom;
+  background-size: 100% 100%;
   display: flex;
   display: -webkit-flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  font-family: Roboto;
 }
 
-header a {
-  margin-left: 1%;
+/* 头部 */
+header {
+  width: 100%;
+  height: 8.5%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-header label {
-  color: #ccc;
+/* 用户名 */
+header h1 {
+  font-family: Anton;
+  margin: 0 5% -.5%;
+  color: transparent;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+  background: -webkit-linear-gradient(#FF0033, #333399);
+  background: -moz-linear-gradient(#FF0033, #333399);
+  background: -o-linear-gradient(#FF0033, #333399);
+  background: linear-gradient(#FF0033, #333399);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
+/* 输入框 */
 header input {
-  margin-right: 5%;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 3px 0px black inset;
   outline: none;
-  height: 40%;
-  padding: 0 10px;
-  margin-left: 20px;
+  border: none;
+  border-bottom: 2px solid #FF0033;
+  background: transparent;
+  width: 60%;
+  height: 30px;
+  margin-left: 8%;
+  text-indent: .5em;
 }
 
+/* 退出按钮 */
+header a {
+  display: flex;
+  display: -webkit-flex;
+  margin-right: 4%;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #FF0033;
+}
+
+/* 主体 */
 main {
   display: flex;
   display: -webkit-flex;
-  width: 40%;
-  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
   align-self: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 91.5%;
+  padding: 10px 4% 7%;
 }
 
+/* 列表标题 */
 main h2 {
   display: flex;
   display: -webkit-flex;
   justify-content: space-between;
+  background-size: 60px 30px;
+  background-position: left;
+  width: 96%;
+  height: 7%;
+  font-family: no;
+  margin-top: 10px;
 }
 
 main h2 span {
-  padding: 0 5px;
+  width: 17px;
   height: 20px;
   border-radius: 20px;
-  background: #E6E6FA;
+  background: #FF0033;
   line-height: 22px;
   text-align: center;
-  color: #666;
+  color: #fff;
+  margin-right: 15px;
   font-size: 14px;
 }
 
-main h2,
-ol,
-ul {
-  width: 80%;
-  margin-bottom: 1%;
-  position: relative;
+main h2:last-of-type span {
+  background: #333399;
 }
 
-main h2 {
-  margin: 3% 0;
+
+/* 列 */
+main ol,
+main ul {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-height: 40%;
+  align-content: flex-start;
+  position: relative;
+  overflow: auto;
 }
 
 main ol li,
 main ul li {
   display: flex;
   display: -webkit-flex;
+  width: 100%;
+  /* height: 30px; */
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   list-style: none;
-  line-height: 32px;
-  background: #fff;
-  margin-bottom: 10px;
-  padding: 0 8px;
-  border-radius: 3px;
-  border-left: 5px solid #629A9C;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  line-height: 28px;
+  background: -webkit-linear-gradient(#ccc, #62B6EA 10%);
+  background: -moz-linear-gradient(#ccc, #62B6EA 10%);
+  background: -o-linear-gradient(#ccc, #62B6EA 10%);
+  background: linear-gradient(#ccc, #62B6EA 10%);
+  margin-bottom: 7px;
+  padding-right: 8px;
+  border-radius: 1px 5px 5px 1px;
+  box-shadow: .5px .5px .5px rgba(0, 0, 0, .4);
+  position: relative;
 }
 
+main ol li:hover,
+main ul li:hover {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+  bottom: .1px;
+}
+
+main ol li:hover p,
+main ul li:hover p {
+  color: rgb(255, 255, 255, .9);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+}
+
+main ol li:last-child,
+main ul li:last-child {
+  margin-bottom: 0px;
+}
+
+/* 列标记样式 */
+li label {
+  font-size: 20px;
+  text-indent: 5px;
+  position: absolute;
+}
+li input:hover {
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+}
+
+li input:active {
+  top: 1px;
+}
+/* 完成/取消按钮 */
 li input {
   width: 22px;
   height: 22px;
   outline: none;
   cursor: pointer;
 }
+
+/* 内容 */
 li p {
-  text-indent: 5px;
+  padding: 0 3px;
+  width: 92%;
+  border: none;
+  outline: none;
+  border-left: 3px solid #ccc;
+  border-right: 3px solid #ccc;
 }
-li a{
+
+/* 删除 */
+li span {
   position: absolute;
-  right: 3px;
-  width: 18px;
+  right: 5px;
+  /* width: 18px;
   height: 16px;
   background: #fff;
   border-top: 7px solid #323232;
   border-right: 3px solid #323232;
   border-bottom: 7px solid #323232;
   border-left: 3px solid #323232;
-  border-radius: 3px;
+  border-radius: 5px; */
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
 }
 
+li span:hover {
+  color: #fff;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, .4);
+}
+
+li span:active {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(51, 51, 153, .8);
+  background-image: -webkit-linear-gradient(45deg,
+      rgb(255, 0, 51, .8),
+      transparent,
+      rgb(255, 0, 51, .8),
+      transparent);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  background: #ccc;
+  border-radius: 10px;
+}
