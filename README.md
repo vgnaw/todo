@@ -1,6 +1,6 @@
 # todolist
 
-The front-end part uses pure CSS, JavaScript, and the back-end uses Nodejs's Express framework to build a server to synchronize the MySQL database in real time.
+The front-end part uses pure HTML, CSS, JavaScript, and the back-end uses Nodejs's Express framework to build a server to synchronize the MySQL database in real time.
 
 ## fature
 
@@ -16,7 +16,7 @@ The front-end part uses pure CSS, JavaScript, and the back-end uses Nodejs's Exp
 
 - **register**
 
-  ![register](https://items-picture.oss-cn-beijing.aliyuncs.com/todo/retister.gif)
+  ![register](https://items-picture.oss-cn-beijing.aliyuncs.com/todo/register.gif)
 
 - **login**
 
@@ -24,7 +24,7 @@ The front-end part uses pure CSS, JavaScript, and the back-end uses Nodejs's Exp
 
 - **test**
 
-  ![test](https://items-picture.oss-cn-beijing.aliyuncs.com/todo/handle.gif)
+  ![test](https://items-picture.oss-cn-beijing.aliyuncs.com/todo/test.gif)
 
 ## MySQL data sheet
 

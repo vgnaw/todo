@@ -13,18 +13,18 @@ const passP = userPassBox.querySelector('p'); // 用户名输入框下方线条
 // 用户框回车执行登录
 username.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    checkU() && checkP() ? loginRequest() : alert('用户名或密码不正确')
+    checkU() && checkP() ? loginRequest() : alert('Incorrect username or password')
   }
 })
 // 密码框回车执行登录
 password.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    checkU() && checkP() ? loginRequest() : alert('用户名或密码不正确')
+    checkU() && checkP() ? loginRequest() : alert('Incorrect username or password')
   }
 })
 // 点击注册按钮执行登录
 loginBtn.addEventListener('click', (e) => {
-  checkU() && checkP() ? loginRequest() : alert('用户名或密码不正确')
+  checkU() && checkP() ? loginRequest() : alert('Incorrect username or password')
 })
 
 // 用户名正则：4~16位数字、字母或下划线
@@ -63,7 +63,7 @@ function loginRequest() {
       if (data === 'loginSuccess') {
         location.href = "http://localhost:3000"
       } else {
-        alert('用户名或密码不正确')
+        alert('Incorrect username or password')
       }
     }
   })

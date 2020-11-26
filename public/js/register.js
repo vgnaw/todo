@@ -132,9 +132,9 @@ function registerRequest() {
     success(data) {
       console.log(data)
       if (data === 'exist') {
-        alert('用户名已存在')
+        alert('The user name already exists')
       } else if (data === 'registerSuccess') {
-        alert('注册成功')
+        alert('registered successfully')
         location.href = "http://localhost:3000/login"
       }
     }
